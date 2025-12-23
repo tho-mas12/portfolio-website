@@ -94,3 +94,42 @@ function validateForm() {
     return false; // prevent actual submit (no backend)
 }
 
+
+function validateLogin(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const ageVal = document.getElementById('age').value;
+    const age = ageVal ? parseInt(ageVal, 10) : NaN;
+    const email = document.getElementById('email').value.trim();
+    const contact = document.getElementById('contact').value.trim();
+
+    if (!name) {
+        alert('Please enter your name.');
+        return false;
+    }
+    if (!age || age <= 0) {
+        alert('Please enter a valid age.');
+        return false;
+    }
+    const emailRegex = /^\S+@\S+\.\S+$/;
+    if (!email || !emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return false;
+    }
+    const contactRegex = /^\+?\d{7,15}$/;
+    if (!contact || !contactRegex.test(contact)) {
+        alert('Please enter a valid contact number (7-15 digits, optional leading +).');
+        return false;
+    }
+
+    // Show success feedback then redirect to homepage
+    const btn = document.getElementById('loginBtn');
+    btn.disabled = true;
+    btn.innerHTML = 'Signing in...';
+    // small success animation before redirect
+    setTimeout(() => {
+        window.location.href = 'homepage.html';
+    }, 700);
+    return false;
+}
+
