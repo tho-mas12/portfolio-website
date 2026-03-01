@@ -1,0 +1,22 @@
+{
+  "name": "benitoo-demo-portfolio",
+  "version": "1.0.0",
+  "description": "Simple portfolio with contact form and email sending",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "Thomas Darwin J",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1",
+    "mysql2": "^3.16.3",
+    "nodemailer": "^7.0.13"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
